@@ -1,4 +1,28 @@
 hello world
 
+<script>
+var triggermail = {
+    lytics: {config: {token: 'dev_test'}},
+    Partner: {trackCheckout: function () {console.log('trackCheckout')}},
+    purchase: function(){ console.log('triggermail.purchase: ', arguments) },
+    custom: function(){ console.log('triggermail.custom: ', arguments) },
+    identify: function(){ console.log('triggermail.identiy: ', arguments) },
+    customer_patch: function(){ console.log('triggermail.customer_patch: ', arguments) }
+}
+var host_path = 'storage.googleapis.com/bluecore_addons/'
+var partner = (triggermail.lytics.config ? triggermail.lytics.config.token : null)
+if (partner) {
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.setAttribute('data-cfasync', 'false')
+    script.src = ('https:' === document.location.protocol ? 'https://' : 'http://') + host_path + partner + '.ju.js';
+    var firstScript = document.getElementsByTagName('script')[0];
+    firstScript.parentNode.insertBefore(script, firstScript);
+}
+console.log('begin');
+</script>
 
-<script type="text/javascript" src="https://storage.googleapis.com/bluecore_justuno_integrations/bluecore.css"></script>
+
+
+
+<!-- <script type="text/javascript" src="https://storage.googleapis.com/bluecore_justuno_integrations/bluecore.css"></script> -->
