@@ -5,6 +5,7 @@ var triggermail = {
     lytics: {config: {token: 'dev_test'}},
     Partner: {trackCheckout: function () {console.log('trackCheckout')}},
     purchase: function(){ console.log('triggermail.purchase: ', arguments) },
+    add_to_cart: function(){ console.log('triggermail.add_to_cart: ', arguments) },
     custom: function(){ console.log('triggermail.custom: ', arguments) },
     identify: function(){ console.log('triggermail.identify: ', arguments) },
     customer_patch: function(){ console.log('triggermail.customer_patch: ', arguments) }
